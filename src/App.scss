@@ -1,0 +1,86 @@
+body, div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardList {
+  list-style: none;
+  display: inline-flex;
+}
+
+.card {
+  width: 150px;
+  height: 210px;
+  border-radius: 6px;
+  margin-right: 5px;
+  cursor: pointer;
+  border: 4px solid black;
+}
+
+.cardDisplay {
+  position: relative;
+  padding: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.cardBack {
+  background: blue;
+}
+
+.cardDisplay {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  background: white;
+}
+
+.suit-center {
+  width: 60px;
+  margin: 0 auto;
+}
+
+.suit-logo {
+  width: 15px;
+  margin-top: 6px;
+}
+
+.total {
+	font-size: 32px;
+	margin: 20px 0;
+}
+
+.turn-left {
+  float: right;
+  -webkit-transform: rotate(180deg);
+  /* Chrome and other webkit browsers */
+  -moz-transform: rotate(180deg);
+  /* FF */
+  -o-transform: rotate(180deg);
+  /* Opera */
+  -ms-transform: rotate(180deg);
+  /* IE9 */
+  transform: rotate(180deg);
+  bottom: 0px;
+  right: 0px;
+}
+
+/* Card Fan Loop */
+.cardfan {
+	left: 0;
+}
+
+@for $i from 1 through 20 {
+	.cardfan .carditem-#{$i} {
+		$j: $i - 10;
+		$deg: 5;
+		$px: -1.5;
+		-moz-transform: translateX(100%) translate(-$i*0.4%) translate(#{($i/0.5)*$i*$px)}px) rotate(#{$j*$deg}deg);
+		-o-transform: translateX(100%) translate(-$i*0.4%) translate(#{($i/0.5)*$i*$px)}px) rotate(#{$j*$deg}deg);
+		-ms-transform: translateX(100%) translate(-$i*0.4%) translate(#{($i/0.5)*$i*$px)}px) rotate(#{$j*$deg}deg);
+	  -webkit-transform: translateX(100%) translate(-$i*0.4%) translate(#{($i/0.5)*$i*$px)}px) rotate(#{$j*$deg}deg);
+	  transform: translateX(100%) translate(-$i*0.4%) translate(#{($i/0.5)*$i*$px)}px) rotate(#{$j*$deg}deg);
+	}
+}
